@@ -18,7 +18,7 @@ function GETPRICE(base,symbol) {
     var cache = CacheService.getScriptCache();
     var cached = cache.get(base + symbol);
     if (cached != null) {
-      return cached;
+      return parseFloat(cached);
     }
 
     // Here you fetch the API response json. You will get something like this: 
