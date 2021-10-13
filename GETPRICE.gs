@@ -10,6 +10,18 @@
 //  Usage in Google Sheets:
 //  =GETPRICE("USD";"XAU")
 //  It will return the price of $1 worth of XAU in this case.
+//
+//  Also you might want to use it like this:
+//  
+//  =IFERROR(GETPRICE("USD;"XAU");55)
+//  This will give you a number in case of you run out of API calls for the month. It is not ideal 
+//  but much better than undermining other calculations with the value. Also consider a longer cache
+//  time if you do not need precise minute to minute values (or pay for their service, this thing will work much better.)
+//  
+//  You need the cache because google sheets loads ALL sheets in your file. Even if you do not go to the tab where
+//  you use this, it will load it. So you use up your monthly limit fast without it. For my case I use 10 days cache. I do
+//  not need even daily gold price.
+//
 */
 
 function GETPRICE(base,symbol) {
